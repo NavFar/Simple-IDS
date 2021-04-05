@@ -2,9 +2,10 @@
 #include <iostream>
 #include <curl/curl.h>
 #include <curl/easy.h>
-WordSensitiveDataPipe::WordSensitiveDataPipe(std::vector<std::string>& sensitiveWords) {
+WordSensitiveDataPipe::WordSensitiveDataPipe(std::vector<std::string>& sensitiveWords, long limit) {
 
 	this->sensitiveWords = sensitiveWords;
+	this->limit = limit;
 }
 
 WordSensitiveDataPipe::~WordSensitiveDataPipe() {
@@ -57,7 +58,7 @@ void WordSensitiveDataPipe:: calculatePipeState() {
 				}
 			}
 		}
-		if(count >=15){
+		if(count >= this->limit){
 			this->pipeState = PipeState::NOT_OK;
 			return;
 		}

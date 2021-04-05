@@ -18,8 +18,9 @@ class WordSensitiveDataPipe: public DataPipe {
 private:
 	std::vector<std::string> sensitiveWords;
 	std::deque<bool> isPacketDangerous;
+	long limit;
 public:
-	WordSensitiveDataPipe(std::vector<std::string>&);
+	WordSensitiveDataPipe(std::vector<std::string>&, long);
 	virtual ~WordSensitiveDataPipe();
 	void addToPipe(Packet);
 	void initializePipe();
