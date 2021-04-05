@@ -19,7 +19,7 @@ protected:
 public:
 	DataPipe();
 	virtual ~DataPipe();
-	PipeState getPipeState();
+	virtual PipeState getPipeState();
 	virtual void calculatePipeState()=0;
 	virtual void addToPipe(Packet)=0;
 	virtual void initializePipe();
