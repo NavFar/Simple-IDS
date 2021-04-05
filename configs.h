@@ -1,10 +1,3 @@
-/*
- * configs.h
- *
- *  Created on: Apr 5, 2021
- *      Author: navidfarahmand
- */
-
 #ifndef CONFIGS_H_
 #define CONFIGS_H_
 

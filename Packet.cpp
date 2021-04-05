@@ -1,9 +1,3 @@
-/*
- * Packet.cpp
- *
- *  Created on: Apr 4, 2021
- *      Author: navidfarahmand
- */
 #include "Packet.h"
 #include <string>
 #include <iostream>

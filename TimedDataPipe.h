@@ -1,10 +1,3 @@
-/*
- * TimedDataPipe.h
- *
- *  Created on: Apr 4, 2021
- *      Author: navidfarahmand
- */
-
 #ifndef TIMEDDATAPIPE_H_
 #define TIMEDDATAPIPE_H_
 

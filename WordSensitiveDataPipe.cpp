@@ -1,10 +1,3 @@
-/*
- * WordSensitiveDataPipe.cpp
- *
- *  Created on: Apr 5, 2021
- *      Author: navidfarahmand
- */
-
 #include "WordSensitiveDataPipe.h"
 #include <iostream>
 #include <curl/curl.h>

@@ -1,10 +1,3 @@
-/*
- * DataPipe.h
- *
- *  Created on: Apr 4, 2021
- *      Author: navidfarahmand
- */
-
 #ifndef DATAPIPE_H_
 #define DATAPIPE_H_
 

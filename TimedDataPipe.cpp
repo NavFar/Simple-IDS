@@ -1,10 +1,3 @@
-/*
- * TimedDataPipe.cpp
- *
- *  Created on: Apr 4, 2021
- *      Author: navidfarahmand
- */
-
 #include "TimedDataPipe.h"
 #include "configs.h"
 

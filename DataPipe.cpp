@@ -1,10 +1,3 @@
-/*
- * DataPipe.cpp
- *
- *  Created on: Apr 4, 2021
- *      Author: navidfarahmand
- */
-
 #include "DataPipe.h"
 
 DataPipe::DataPipe() {
