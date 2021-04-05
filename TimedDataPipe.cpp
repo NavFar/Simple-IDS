@@ -6,6 +6,7 @@
  */
 
 #include "TimedDataPipe.h"
+#include "configs.h"
 
 TimedDataPipe::TimedDataPipe():DataPipe() {
 	this->initializePipe();
@@ -21,20 +22,20 @@ void TimedDataPipe::addToPipe(Packet packet){
 }
 void TimedDataPipe::calculatePipeState(){
 	std::cout<<"pipe Size is "<< this->pipeData.size()<<std::endl;
-	while(this->pipeData.front().getTimestamp() +1000 < this->lastCheckTime){
+	while(this->pipeData.front().getTimestamp() + DOS_INTERVAL < this->lastCheckTime){
 		this->pipeData.pop_front();
 		std::cout<<"Deleted "<<this->pipeData.size()<<std::endl;
 	}
 	if(this->pipeData.back().getDirection() == PacketDirection::OUT)
 		return;
-	int counter = 0;
+	int counter = 1;
 	for(int i=0;i<this->pipeData.size()-1;i++){
 		if( this->pipeData.at(i).getDirection() == PacketDirection::IN
 			&& this->pipeData.at(i).getRecieverIp()== this->pipeData.back().getRecieverIp()
 			&& this->pipeData.at(i).getSenderIp() == this->pipeData.back().getSenderIp())
 			counter++;
 	}
-	if(counter >=3-1)
+	if(counter >=DOS_LIMIT)
 		this->pipeState = PipeState::NOT_OK;
 
 }
