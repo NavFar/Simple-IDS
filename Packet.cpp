@@ -7,6 +7,8 @@
 #include "Packet.h"
 #include <string>
 #include <iostream>
+#include <curl/curl.h>
+#include <curl/easy.h>
 #include "PacketDirection.h"
 Packet::Packet(){
 }
@@ -55,7 +57,15 @@ const std::string& Packet::getUrl() const {
 }
 
 void Packet::setUrl(const std::string &url) {
-	this->url = url;
+	CURL *curl = curl_easy_init();
+	if(curl) {
+		int outlength;
+	  char *output = curl_easy_unescape(curl, url.c_str(), url.length(), & outlength);
+	  if(output) {
+		this->url = output;
+		curl_free(output);
+	  }
+	}
 }
 
 std::ostream& operator<< (std::ostream &out , const Packet & packet){
