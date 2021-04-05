@@ -14,10 +14,8 @@ void TimedDataPipe::addToPipe(Packet packet){
 	this->calculatePipeState();
 }
 void TimedDataPipe::calculatePipeState(){
-	std::cout<<"pipe Size is "<< this->pipeData.size()<<std::endl;
 	while(this->pipeData.front().getTimestamp() + DOS_INTERVAL < this->lastCheckTime){
 		this->pipeData.pop_front();
-		std::cout<<"Deleted "<<this->pipeData.size()<<std::endl;
 	}
 	if(this->pipeData.back().getDirection() == PacketDirection::OUT)
 		return;

@@ -17,8 +17,6 @@ void WordSensitiveDataPipe:: addToPipe(Packet packet) {
 	else {
 		bool flag = false;
 		for(int i=0;i<this->sensitiveWords.size();i++) {
-			std::cout<<packet.getUrl()<<std::endl;
-			std::cout<<this->sensitiveWords.at(i)<<std::endl;
 			if( packet.getUrl().find(this->sensitiveWords.at(i)) !=std::string::npos ) {
 				flag = true;
 				break;
@@ -36,9 +34,6 @@ void WordSensitiveDataPipe:: initializePipe() {
 
 PipeState WordSensitiveDataPipe:: getPipeState() {
 	this->calculatePipeState();
-	for(int i=0;i<this->pipeData.size();i++){
-		std::cout<<this->pipeData.at(i)<<" dangerous --> "<<this->isPacketDangerous.at(i)<<std::endl;
-	}
 	return DataPipe::getPipeState();
 }
 
@@ -62,7 +57,6 @@ void WordSensitiveDataPipe:: calculatePipeState() {
 				}
 			}
 		}
-		std::cout<<"********"<<count<<std::endl;
 		if(count >=15){
 			this->pipeState = PipeState::NOT_OK;
 			return;
