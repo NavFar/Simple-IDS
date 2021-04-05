@@ -2,8 +2,8 @@ PROJECT_ROOT = $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
 OBJS = SimpleIDS.o Packet.o DataPipe.o TimedDataPipe.o WordSensitiveDataPipe.o
 
-CFLAGS += -lcurl
-LDFLAGS += -lcurl
+CFLAGS  += -lcurl -std=c++17
+LDFLAGS += -lcurl -std=c++17
 ifeq ($(BUILD_MODE),debug)
 	CFLAGS += -g
 else ifeq ($(BUILD_MODE),run)
