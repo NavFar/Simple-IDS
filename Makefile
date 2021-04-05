@@ -1,6 +1,6 @@
 PROJECT_ROOT = $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
-OBJS = SimpleIDS.o
+OBJS = SimpleIDS.o Packet.o DataPipe.o TimedDataPipe.o
 
 ifeq ($(BUILD_MODE),debug)
 	CFLAGS += -g
